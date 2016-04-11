@@ -1,0 +1,65 @@
+.nav-arrows {
+  display: flex;
+  align-items: center;
+  color: $gray-color;
+
+  @include mq(sm) {
+    justify-content: center;
+  }
+
+  button {
+    position: relative;
+    display: block;
+    height: 48px;
+    text-transform: uppercase;
+
+    &:hover, &:focus {
+      opacity: .6;
+    }
+  }
+
+  &__divider {
+    display: block;
+    height: 32px;
+    width: 2px;
+    margin: 0 20px;
+    background-color: $gray-color;
+  }
+
+  &__brand {
+    font-weight: 700;
+    color: lighter($navbar-default-link-color, 5%);
+  }
+
+  .icon-arrow-left {
+    @include sprite($arrow-left)
+    left: -25px;
+    margin-right: 20px;
+  }
+
+  .icon-arrow-right {
+    @include sprite($arrow-right)
+    right: -25px;
+    margin-left: 20px;
+  }
+
+  &--mobile {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+  }
+
+  @include mq(xs) {
+    [class^='icon'] {
+      position: absolute;
+      top: 0;
+      margin: 0;
+    }
+
+    &__divider {
+      display: none;
+    }
+  }
+}

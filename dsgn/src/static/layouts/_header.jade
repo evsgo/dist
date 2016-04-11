@@ -1,0 +1,67 @@
+header#home.page-header
+  .navbar.navbar--fixed(data-menu)
+    nav.nav-menu(data-menu)
+      ul.nav-menu__list
+        li.nav-menu__item.nav-menu__item--active
+          a.nav-menu__link(href="#home") Home
+        li.nav-menu__item
+          a.nav-menu__link(href="#projects") Projects
+        li.nav-menu__item
+          a.nav-menu__link(href="#studio") Studio
+        li.nav-menu__item
+          a.nav-menu__link(href="#news") News
+        li.nav-menu__item
+          a.nav-menu__link(href="#contacts") Contact
+
+      button.nav-menu__burger(data-menu-trigger)
+        span.burger-bar.burger-bar--1
+        span.burger-bar.burger-bar--2
+        span.burger-bar.burger-bar--3
+
+  .container
+    .row
+      .col-sm-6
+        figure.page-header__logo
+          a.logo.flash(href="#")
+            span.logo__image.flash(
+              data-svg, data-src="images/logo.svg", alt="Studio Design"
+            )
+            | ASSOCIATES#[br]
+            | STUDIO#[br]
+            | DESIGN
+
+        ul.social-links
+          li.social-links__item
+            a.social-links__link(href="#")
+              span.icon-social.icon-facebook(
+                data-svg, data-src="images/icons/facebook.svg"
+              )
+          li.social-links__item
+            a.social-links__link(href="#")
+              span.icon-social.icon-twitter(
+                data-svg, data-src="images/icons/twitter.svg"
+              )
+          li.social-links__item
+            a.social-links__link(href="#")
+              span.icon-social.icon-linkedin(
+                data-svg, data-src="images/icons/linkedin.svg"
+              )
+          li.social-links__item
+            a.social-links__link(href="#")
+              span.icon-social.icon-google(
+                data-svg, data-src="images/icons/google.svg"
+              )
+
+  .section-box.section-box--header
+    .contacts
+      p.contacts__address
+        | 90802 California #[br]
+        | Long beach #[br]
+        | PO Box 68789 #[br]
+        | 300 East Ocean #[br]
+        | Boulevard
+      p.contacts__links
+        a.contacts__number.-under.-under--light(href="tel:+6493456758")
+          | +64 9 345 6758
+        a.contacts__email.-under.-under--light(href="mailto:info@dsgn-studio.com")
+          | info@dsgn-studio.com

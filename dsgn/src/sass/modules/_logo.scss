@@ -1,0 +1,47 @@
+.logo {
+  display: inline-block;
+  font-size: 1.8rem;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: uppercase;
+  fill: $text-color;
+
+  &:hover {
+    color: $info;
+  }
+
+  @include mq(xs) {
+    font-size: floor(($font-size-base * 1.7));
+    font-weight: 700;
+  }
+}
+
+#dsgn {
+  display: block;
+  width: 160px;
+  height: 207px;
+  margin-bottom: 5px;
+  fill: $info;
+  opacity: 1;
+
+  * {
+    transition: all 55ms linear;
+  }
+
+  @include mq(xs) {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@include mq(md) {
+  .page-footer {
+    .logo {
+      font-size: floor(($font-size-base * 2.6));
+
+      @include mq(xs) {
+        font-size: floor(($font-size-base * 1.7));
+      }
+    }
+  }
+}

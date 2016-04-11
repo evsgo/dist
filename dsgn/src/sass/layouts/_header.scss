@@ -1,0 +1,19 @@
+.page-header {
+  @include clearfix();
+  position: relative;
+  height: 500px;
+  padding-top: 50px;
+  @include atx(header, png, 40%, 40% 50px);
+  background-color: rgba(233, 234, 226, .5);
+
+
+  @include mq(md) {
+    height: auto;
+    min-height: 420px;
+    @include atx(header, png, 350px, 60% 121px);
+  }
+
+  @include mq(xs) {
+    @include atx(header, png, auto 250px, 100% 100%);
+  }
+}

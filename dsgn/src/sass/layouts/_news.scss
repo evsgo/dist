@@ -1,0 +1,109 @@
+.news {
+  position: relative;
+  min-height: 500px;
+  background-color: darken($gray-lighter, 2%);
+  color: $gray;
+
+  @include mq(md) {
+    @include x-rem(padding, 8 0 10);
+  }
+
+  &__list {
+    @include x-rem(margin-top, 7);
+    @include mq(md) {
+      @include x-rem(margin-top, 3);
+    }
+    @include mq(sm) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      > * {
+        max-width: 480px;
+      }
+    }
+  }
+
+  &__item {
+    @include clearfix();
+
+    @include mq(sm) {
+      padding: 50px 20px 20px 50px;
+      margin-bottom: 35px;
+      background-color: rgba(#fff, .3);
+      box-shadow:
+        0 2px 2px 0 rgba(0,0,0,.14),
+        0 3px 1px -2px rgba(0,0,0,.2),
+        0 1px 5px 0 rgba(0,0,0,.12);
+    }
+
+    @include mq(xs) {
+      padding: 40px 15px 20px;
+    }
+  }
+
+  &__header {
+    text-transform: uppercase;
+    @include x-rem(margin-bottom, 1.8);
+  }
+
+  &__title {
+    margin: 0;
+    @include multiple(26, 2, 2.4rem);
+    font-weight: 700;
+    color: $headings-color;
+  }
+
+  &__date {
+    font-size: 1.2rem;
+    line-height: 2.4rem;
+    color: $gray-light;
+  }
+
+  &__image {
+    display: block;
+    height: 180px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+
+    @include mq(xs) {
+      height: auto;
+      max-height: 180px;
+    }
+  }
+
+  &__descr {
+    @include multiple(15, 4, 1.3rem);
+  }
+
+  &__more {
+    margin-top: 1rem;
+    float: right;
+    text-transform: uppercase;
+    color: $alert;
+  }
+
+  .-under {
+    &::after {
+      background: linear-gradient(to right,
+        $brand-success 50%, $gray-light 50%
+      );
+    }
+  }
+
+  &__item {
+      &:hover {
+      .news__more {
+        animation: twinkle-more .7s infinite alternate linear;
+      }
+      .-under::after {
+        transform: translateX(0);
+      }
+    }
+  }
+}

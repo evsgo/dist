@@ -1,0 +1,71 @@
+$arrowsColors: rgba(#fff, .8) rgba(#fff, .8) transparent transparent;
+$arrowsHover: rgba(#fff, 1) rgba(#fff, 1) transparent transparent;
+
+.slick-prev, .slick-next {
+  height: 100%;
+  width: 130px;
+  vertical-align: middle;
+  outline: none;
+  background-color: transparent;
+  transform: translate(0, 0);
+  z-index: 99999;
+  top: 0;
+  transition: all 105ms ease-in-out;
+
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    content: ' ';
+    font-size: 24px;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    border: 0.12em solid transparent;
+    transition: all 105ms ease-in-out;
+    border-color: $arrowsColors;
+  }
+
+  &:hover {
+    background-color: rgba(#000, .6);
+    &:before {
+        line-height: 1em;
+        border-color: $arrowsHover;
+    }
+  }
+
+  @include mq(lg) {
+    width: 100px;
+
+    @include mq(sm) {
+      width: 60px;
+
+      @include mq(xs) {
+        width: 40px;
+
+        &:before {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+.slick-prev {
+    left: 0;
+    right: auto;
+    &:before {
+      margin-left: 0.25em;
+      transform: translate(-50%, -50%) rotate(-135deg);
+  }
+}
+
+.slick-next {
+    left: auto;
+    right: 0;
+    &:before {
+      margin-left: -0.25em;
+      transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

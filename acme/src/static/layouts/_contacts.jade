@@ -1,0 +1,72 @@
+#sectContacts.contacts
+  .container
+    section.sect-header
+      h2.sect-header__title контакты
+
+    .row
+      .col-sm-6.contacts__map
+        #map.map
+          img(src="images/map.png", alt="map")
+          span.map__marker
+        .contacts__address
+          i.icon-local
+          span РОССИЯ, КРАСНОЯРСК, Телевизорная, 1 стр. 9
+
+      .col-sm-6
+        .feedback
+          form#feedbackForm.form-horizontal(action='/', method='post' role='form')
+            .form-group
+              .col-sm-6
+                .form-select
+                  a.form-control.form-select__phone(
+                      href='#',
+                      data-toggle='dropdown',
+                      data-select-phone
+                    )
+                    span.form-select__brand acme
+                    span#selectPhone(data-text='wood') wood
+                    span.icon-dropdown
+                  ul.dropdown-menu.form-select__list
+                    li
+                      a.js-select-option(href='#')
+                        span.form-select__brand acme
+                        span.js-option-text(data-text='emotion') emotion
+                    li
+                      a.js-select-option(href='#')
+                        span.form-select__brand acme
+                        span.js-option-text(data-text='water') water
+                    li
+                      a.js-select-option(href='#')
+                        span.form-select__brand acme
+                        span.js-option-text(data-text='river') river
+                    li
+                      a.js-select-option(href='#')
+                        span.form-select__brand acme
+                        span.js-option-text(data-text='realty') realty
+
+              .col-sm-6
+                a.select-phone(href='tel:+73912081330')
+                  i.icon-phone
+                  span 8 (391)
+                  span.select-phone__main 208 13 30
+
+            .form-group
+              .col-sm-12
+                input.form-control.form-enter(type='text', name='us-name', placeholder='имя фамилия', autocomplete='user-name')
+
+            .form-group
+              .col-sm-6
+                input.form-control.form-enter.form-enter--first(type='tel', name='us-phone', placeholder='телефон', autocomplete='tel')
+              .col-sm-6
+                input.form-control.form-enter(type='email', name='us-email', placeholder='e-mail', autocomplete='email')
+
+            .form-group
+              .col-sm-12
+                label.control-label(for='fbMessage') Сообщение
+                textarea#feedbackMsg.form-control.form-msg(name='comment')
+
+            .form-group
+              .col-sm-12
+                button.form-send(type='submit')
+                  i.icon-send
+                  span отправить

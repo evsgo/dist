@@ -1,0 +1,32 @@
+/* vendor:scss */
+/* endinject */
+
+// dependencies
+@import "core-variables";
+@import "utilities/core-mixins";
+@import "_vendor/sprite";
+
+// base
+@import "base/settings";
+@import "base/type";
+
+// layouts
+@import "layouts/grid";
+@import "layouts/header";
+@import "layouts/projects";
+@import "layouts/studio";
+@import "layouts/news";
+@import "layouts/footer";
+
+// modules
+@import "modules/navbar";
+@import "modules/box";
+@import "modules/logo";
+@import "modules/social";
+@import "modules/contacts";
+@import "modules/sortbar";
+@import "modules/panels";
+
+// utilities
+@import "utilities/states";
+@import "utilities/helpers";

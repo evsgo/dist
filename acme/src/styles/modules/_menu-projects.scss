@@ -1,0 +1,72 @@
+.make-projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+
+  li {
+    width: 20%;
+    height: 41px;
+    line-height: 41px;
+    text-align: center;
+
+    @include mq(sm) {
+      width: 50%;
+    }
+
+    @include mq(xs) {
+      width: 100%;
+    }
+  }
+
+  &__brand {
+    display: block;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: background-color 115ms linear;
+  }
+
+  &--header {
+    justify-content: space-around;
+
+    li > a {
+
+      &:hover, &:focus {
+        background-color: rgba(#fff, .9);
+        text-decoration: none;
+        border-color: rgba(#fff, 1);
+        background-color: rgba(#fff, .9);
+      }
+
+      @include mq(sm) {
+        border: 1px solid transparent;
+        transition: border-color .122s linear;
+      }
+    }
+  }
+
+  &--footer {
+    margin: 25px 0;
+
+    li {
+      text-align: left;
+
+      @include mq (sm) {
+        width: 33%;
+        text-align: center;
+
+        @include mq(xs) {
+          width: 50%;
+        }
+      }
+
+      a {
+        transition: all 117ms linear;
+
+        &:hover, &:focus {
+          opacity: .7;
+        }
+      }
+    }
+  }
+}

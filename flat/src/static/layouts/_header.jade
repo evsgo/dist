@@ -1,0 +1,36 @@
+header.page-header.bg-primary
+  .container
+    nav.navbar.navbar-default
+      .navbar-header
+        button.navbar-toggle.collapsed(
+          type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar'
+          )
+          span.sr-only
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='#')
+          img(src="images/brand.png", alt="Logotype")
+          | Flat Mate
+
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#') Have an Account ?
+          li.active
+            a(href='#') LOGIN
+
+
+    .jumbotron
+      .row
+        .jumbotron__text.col-sm-8
+          h1 Lorem ipsum dolor sit amet
+          p
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+          a.btn.btn-lg.btn-success(
+            href='#,' role='button') Read More
+
+        .jumbotron__msg.col-sm-4
+          a(href="#").jumbotron__msg-panel
+            img(src="images/message.png", alt="message")

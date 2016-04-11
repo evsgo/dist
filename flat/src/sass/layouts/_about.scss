@@ -1,0 +1,48 @@
+.about {
+  padding: 100px 0;
+
+  .row {
+    position: relative;
+  }
+
+  @include mq(sm) {
+    &__alignment {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      width: 100px;
+      z-index: 100;
+    }
+  }
+
+  &__main {
+    background-color: #fff;
+    padding: 50px 30px 20px 70px;
+
+    &-panel {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    &-title {
+      h2 {
+        margin-top: 0;
+      }
+
+      hr {
+        background-color: rgba( #000, 0.1);
+        border: none;
+        height: 1px;
+      }
+    }
+
+    @include mq(sm) {
+      padding-top: 70px;
+      padding-left: 30px;
+      &-panel {
+        font-size: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+$footer-bg: #005940;
+
+.page-footer {
+  position: relative;
+  background-color: $footer-bg;
+  text-transform: uppercase;
+  padding: 45px 0 60px 0;
+  overflow-x: hidden;
+
+  a:hover, a:focus {
+    color: #fff;
+  }
+
+  &__brand {
+    display: block;
+    text-align: center;
+
+    @include mq (sm) {
+      text-align: left;
+
+      @include mq (xs) {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  &__nav {
+    margin-top: 25px;
+
+    @include mq (sm) {
+      margin-top: 0;
+    }
+
+    @include mq (xs) {
+      position: static;
+
+      [class^='col'] {
+        position: static;
+      }
+    }
+  }
+
+  &__menu {
+    @include mq (sm) {
+      align-items: center;
+      margin-bottom: 20px;
+
+      > li > a {
+        padding: 0;
+        padding-left: 10px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -7px;
+
+    .social-list {
+      align-self: center;
+      margin: 0;
+      margin-right: 15px;
+    }
+
+    @include mq (sm) {
+      margin-top: -5px;
+
+      .social-list {
+        margin-left: 20px;
+
+        @include mq (xs) {
+          order: 2;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq (sm) {
+      justify-content: space-around;
+    }
+  }
+
+  &__group-links {
+    width: 20%;
+
+    > li > a {
+      line-height: 25px;
+    }
+
+    @include mq (sm) {
+      width: 30%;
+      margin-bottom: 20px;
+
+      @include mq (xs) {
+        width: auto;
+        min-width: 80px;
+      }
+    }
+  }
+}

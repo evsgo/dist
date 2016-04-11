@@ -1,0 +1,205 @@
+.btn-content {
+  width: 100%;
+  padding: 14px 0;
+  border: 2px solid $btn-default-color;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: $btn-default-color;
+  text-transform: uppercase;
+  transition: all 117ms linear;
+
+  &:hover {
+    color: darken($btn-default-color, 47%);
+    border-color: darken($btn-default-color, 47%);
+  }
+}
+
+.mdl-search {
+  position: relative;
+  width: 32px;
+
+  @include mq(sm) {
+    position: static;
+  }
+
+  &__input {
+    position: absolute;
+    width: 100%;
+    height: 32px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transform-origin: 100%;
+    transform: translateX(-100%) scaleY(0);
+
+    input {
+      height: 100%;
+      width: 100%;
+      padding-right: 32px;
+      background-color: #fff;
+      color: $text-color;
+    }
+
+    @include mq(sm) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+    border: 2px solid rgba($input-border, .4);
+    cursor: pointer;
+
+    .icon-search {
+      @include sprite($search);
+    }
+  }
+
+  [data-search='active'] {
+    width: 220px;
+    transform: translateX(-100%) scaleY(1);
+    transition: transform .12s linear;
+
+    @include mq (sm) {
+      left: 0;
+      right: 0;
+      width: 100%;
+      transform: translateX(0) scaleX(1);
+    }
+  }
+}
+
+.form-control, .control-label {
+  border-color: transparent;
+  border-bottom-color: $input-border;
+  box-shadow: none;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.form-horizontal .control-label {
+  color: $input-color-placeholder;
+  font-weight: 400;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.form {
+
+  &-select {
+    position: relative;
+    text-transform: uppercase;
+
+    &__phone {
+      display: inline-block;
+      border-color: #fff;
+      height: 47px;
+      width: 100%;
+      line-height: 47px;
+      padding: 0 15px;
+
+      .icon-dropdown {
+        @include sprite($dropdown);
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &__brand {
+      font-weight: 700;
+    }
+
+    &__list {
+      width: 100%;
+      min-width: auto;
+      padding: 0;
+      margin-top: 0;
+      background-color: $gray-lighter;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+
+      li > a {
+        color: #888;
+        height: 47px;
+        line-height: 47px;
+        padding: 0 15px;
+        border-bottom: 1px solid $contacts-bg;
+
+        &:hover, &:focus {
+          color: #222;
+          background-color: transparent;
+        }
+      }
+
+      li:first-child a {
+        border-top: none;
+      }
+    }
+  }
+
+  &-group {
+    margin-bottom: 22px;
+  }
+
+  &-enter {
+    padding-left: 0;
+    border: none;
+    border-bottom: 1px solid $input-color-placeholder;
+
+    @include mq(sm) {
+      &--first {
+        margin-bottom: 22px;
+      }
+    }
+
+    &:focus {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &-msg {
+    height: 84px;
+    border-color: $input-color-placeholder;
+    resize: none;
+
+    &:focus {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+  &-send {
+    padding: 9px 12px;
+    margin-top: 8px;
+    background-color: #b2b2b2;
+    border-radius: 4px;
+    font-size: $font-size-base - 2px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #307765;
+
+    &:hover, &:focus {
+      background-color: #fff;
+    }
+
+    .icon-send {
+      @include sprite($send);
+      margin-right: 9px;
+      vertical-align: bottom;
+    }
+  }
+}

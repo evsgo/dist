@@ -1,0 +1,17 @@
+//- Starting template pages
+extends _base
+
+block title
+  title #{pageTitle}
+
+block header
+  include layouts/_header
+
+block content
+  main
+    include layouts/_projects
+    include layouts/_studio
+    include layouts/_news
+
+block footer
+  include layouts/_footer

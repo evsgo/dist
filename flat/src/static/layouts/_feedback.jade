@@ -1,0 +1,40 @@
+section.feedback
+  .container
+    section.feedback__header
+      h2
+        img.img-responsive(src="images/contact-bg.png", alt="Header")
+
+    .feedback-form
+      form(action="./" method="post")
+        .row
+          .col-sm-6.col-md-5.col-md-offset-1
+            .form-group.feedback-form__input
+              label(for='inputName')
+                | Name
+                span  *
+              input#inputName.form-control.input-lg(
+                type='text',
+                name="name",
+                placeholder='Your name')
+
+            .form-group.feedback-form__input
+              label(for='inputEmail')
+                | E-mail
+                span.label-err  *
+              input#inputEmail.form-control.input-lg(
+                type='email',
+                name="email",
+                placeholder='Your email')
+
+          .col-sm-6.col-md-5
+            .form-group.feedback-form__input
+              label(for='inputMsg')
+                | Massege
+                span  *
+              textarea.form-control.input-lg(
+                name='message',
+                id='inputMsg',
+                placeholder='Your message')
+
+            button.btn.btn-lg.btn-danger.feedback-form__btn(
+              type='submit') Send

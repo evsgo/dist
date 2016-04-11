@@ -1,0 +1,116 @@
+.projects {
+
+  &__info {
+    margin-top: 145px;
+  }
+
+  &__brand {
+    margin: 45px 0 60px 0;
+
+    .small {
+      margin-top: 10px;
+      font-size: $font-size-base * 1.14;
+      font-weight: $headings-font-weight;
+    }
+  }
+
+  &__more {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 115px;
+    color: $gray-base;
+    transition: all 117ms linear;
+
+    .icon-more {
+      @include sprite($arrow-more);
+      margin-left: 16px;
+    }
+
+    &:hover, &:focus {
+      opacity: .7;
+    }
+  }
+
+  &__list-wrapper {
+    float: right;
+    position: relative;
+    height: 820px;
+    padding: 0;
+  }
+
+  &-list {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    margin-bottom: 0;
+    transform: translateY(-50%);
+
+    &__image {
+      display: block;
+    }
+  }
+
+  @include mq(lg) {
+
+    padding: 100px 0;
+
+    &__info {
+      margin-top: 0;
+    }
+
+    &__list-wrapper {
+      height: 640px;
+    }
+  }
+
+  @include mq(md) {
+
+    &__list-wrapper {
+      float: left;
+      height: auto;
+    }
+
+    &-list {
+      position: static;
+      transform: translateY(0);
+    }
+
+    &__nav {
+      float: right;
+    }
+  }
+
+  @include mq(sm) {
+    height: auto;
+    padding: 7rem 0;
+
+    &__brand {
+      margin: 20px 0 20px 0;
+    }
+
+    &__more {
+      margin-bottom: 30px;
+    }
+
+    &__list-wrapper {
+      float: none;
+      height: auto;
+      margin: 0 auto;
+      max-width: 460px;
+    }
+
+    &-list {
+      position: static;
+      transform: translateY(0);
+    }
+
+    @include mq(xs) {
+
+      &__nav {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

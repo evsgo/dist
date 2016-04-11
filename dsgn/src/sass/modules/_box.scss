@@ -1,0 +1,126 @@
+// content box
+//
+.section-box {
+  @include make-sm-column(4, $gutter: 0);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 500px;
+  background: url(../images/line.svg) no-repeat 50%;
+  overflow: hidden;
+  color: #fff;
+
+
+  &__title {
+    position: absolute;
+    bottom: 32%;
+    left: 47%;
+    font-size: floor(($font-size-base * 3.43));
+    @include mq(lg) {
+      font-size: floor(($font-size-base * 2.57));
+    }
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  &--header {
+    padding-left: 65px;
+    left: auto;
+    right: 0;
+    background-color: $info;
+
+    @include mq(md) {
+      width: 250px;
+      height: 250px;
+      top: 170px;
+      background-color: rgba(#fff, .8);
+    }
+
+    @include mq(xs) {
+      position: relative;
+      float: left;
+      right: auto;
+      top: 100%;
+    }
+  }
+
+  &--projects {
+    position: relative;
+    background-color: $warning;
+    // float: left;
+  }
+
+  &--studio {
+    background-color: $alert-lt;
+    z-index: 10;
+
+    @include mq(md) {
+      width: 100%;
+      background:
+        linear-gradient( to bottom,
+          $alert-lt 100%, transparent 100%
+      );
+
+      z-index: 0;
+
+
+      h2 {
+        top: 20px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        max-width: 750px;
+        padding: 15px;
+        margin: 0 auto;
+        text-align: right;
+      }
+
+      @include mq(sm) {
+        height: 80px;
+
+        h2 {
+          top: 50%;
+          bottom: auto;
+          max-width: 460px;
+          transform: translateY(-50%);
+          font-size: floor(($font-size-base * 3.57));
+          font-weight: 700;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &--news {
+    background-color: $success;
+    @include mq(md) {
+      width: 100%;
+      height: 80px;
+      background:
+        linear-gradient(45deg,
+        transparent 0%, $success 35%
+      );
+
+      h2 {
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        max-width: 750px;
+        padding: 15px;
+        margin: 0 auto;
+        transform: translateY(-50%);
+        font-size: floor(($font-size-base * 3.57));
+        font-weight: 700;
+        text-align: right;
+
+        @include mq(sm) {
+          max-width: 480px;
+
+        }
+      }
+    }
+  }
+}

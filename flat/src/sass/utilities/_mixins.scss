@@ -1,0 +1,265 @@
+// Utilities
+@import "mixins/opacity";
+@import "mixins/image";
+@import "mixins/labels";
+@import "mixins/reset-filter";
+@import "mixins/resize";
+@import "mixins/responsive-visibility";
+@import "mixins/size";
+@import "mixins/tab-focus";
+@import "mixins/reset-text";
+@import "mixins/vendor-prefixes";
+
+// Components
+@import "mixins/buttons";
+@import "mixins/pagination";
+@import "mixins/nav-divider";
+@import "mixins/forms";
+@import "mixins/progress-bar";
+@import "mixins/table-row";
+
+// Skins
+@import "mixins/background-variant";
+@import "mixins/border-radius";
+@import "mixins/gradients";
+
+
+// Retina display
+// --------------------------------------------------
+@mixin atx($path, $ext: "jpg", $bs: 100% auto, $bp: 50% 0, $at3x: false, $br: no-repeat) {
+  $path: '../img/' + $path;
+  $at1x_path: "#{$path}@1x.#{$ext}";
+  $at2x_path: "#{$path}@2x.#{$ext}";
+  $at3x_path: "#{$path}@3x.#{$ext}";
+
+  background-image: url("#{$at1x_path}");
+  background-repeat: $br;
+  background-position: $bp;
+  background-size: $bs;
+
+  @include hidpi(2) {
+    background-image: url("#{$at2x_path}");
+    background-size: $bs;
+  }
+
+  @if $at3x {
+    @include hidpi(2.5) {
+      background-image: url("#{$at3x_path}");
+      background-size: $bs;
+    }
+  }
+}
+
+@mixin hidpi($ratio: 1.5) {
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+         only screen and (   min--moz-device-pixel-ratio: $ratio),
+         only screen and (        min-device-pixel-ratio: $ratio),
+         only screen and (                min-resolution: 192dpi),
+         only screen and (                min-resolution: #{$ratio}dppx) {
+      @content;
+  }
+}
+
+// Image responsive
+@mixin img-responsive($display: block) {
+  display: $display;
+  max-width: 100%; // Part 1: Set a maximum relative to the parent
+  height: auto; // Part 2: Scale the height according to the width, otherwise you get stretching
+}
+
+
+// Media queries breakpoints
+//
+// hd = 1920px \ lg = 1200px \ md = 992px \ sm = 768px \ xs = 480px
+// --------------------------------------------------
+@mixin mq($point) {
+
+  @if $point == hd {
+    @media (max-width: #{$screen-hd}) { @content; }
+  }
+  @if $point == lg {
+    @media (max-width: #{$screen-lg}) { @content; }
+  }
+  @if $point == md {
+    @media (max-width: #{$screen-md}) { @content; }
+  }
+  @if $point == sm {
+    @media (max-width: #{$screen-sm}) { @content; }
+  }
+  @if $point == xs {
+    @media (max-width: #{$screen-xs}) { @content; }
+  }
+}
+
+// v2
+//
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: 64.375em) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: 50em) { @content; }
+  }
+  @else if $point == small {
+    @media (min-width: 37.5em)  { @content; }
+  }
+}
+
+
+// Typography
+// --------------------------------------------------
+
+// hidden text
+//
+@mixin text-over() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// WebKit-style focus
+//
+@mixin tab-focus() {
+  // Default
+  outline: solid;
+  // WebKit
+  outline: 3px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+// Multiple line text settings
+//
+@mixin multiple($lh: 2, $n: 2) {
+  height: $headings-line-height * #{$lh}em;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+}
+
+// hidden text full
+//
+@mixin hide-text() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin text-hide() {
+  @include hide-text;
+}
+
+// font-face
+// Usage @include font-face(icons, '../fonts/icons/iconfont');
+@mixin font-face($name, $url) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url('#{$url}.eot');
+    src: url('#{$url}.eot#iefix') format("embedded-opentype"),
+         url('#{$url}.ttf') format('truetype'),
+         url('#{$url}.svg##{$name}') format('svg'),
+         url('#{$url}.woff') format('woff'),
+         url('#{$url}.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    @content;
+  }
+}
+
+// [converter] $parent hack
+@mixin text-emphasis-variant($parent, $color) {
+  #{$parent} {
+    color: $color;
+  }
+  a#{$parent}:hover,
+  a#{$parent}:focus {
+    color: darken($color, 10%);
+  }
+}
+
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// rem-to-px & fallback IE
+// NOTE: $base-font-size === size html!
+@mixin x-rem($property, $values) {
+  $base-font-size: 10px; // should be consistent with your html/body font-size
+  $px-values: ();
+  $rem-values: ();
+
+  @each $value in $values {
+    @if $value == 0 or $value == 0px {
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      $new-rem-value: $value / $base-font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, #{$new-rem-value}rem);
+
+    } @else {
+      $px-values: join($px-values, round($value * $base-font-size));
+      $rem-values: join($rem-values, #{$value}rem);
+    }
+  }
+
+  #{$property}: $px-values;
+  #{$property}: $rem-values;
+}
+
+
+// Utilities
+// --------------------------------------------------
+// Box-sizing toggle
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
+
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@mixin inline-block($gutter: 0, $fz: 1.4, $text: left) {
+  display: inline-block;
+  margin: $gutter;
+  text-align: $text;
+  @include x-rem(font-size, $fz);
+  &:nth-child(-n+1) { margin-left: 0; };
+  &:nth-last-child(-n+1) { margin-right: 0; };
+}
+
+
+// Calculate width of a column
+// Default value of maximum columns is 12
+@mixin col($col, $max-cols: 12) {
+  width: (100%/$max-cols)*$col;
+}
+
+
+// clearfix
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}

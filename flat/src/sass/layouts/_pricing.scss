@@ -1,0 +1,156 @@
+.pricing {
+  padding: 70px 0;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    p {
+      color: $gray-light;
+    }
+  }
+}
+
+.panel {
+
+  a {
+    text-decoration: none;
+    transition: all 105ms linear;
+  }
+
+  %font-style {
+    font-size: $font-size-large;
+    font-weight: 500;
+    color: #fff;
+    padding: 15px 0;
+  }
+
+  &-heading {
+    position: relative;
+    @extend %font-style;
+    margin-bottom: -1px;
+  }
+
+  &__btn {
+    @extend %font-style;
+    display: block;
+    width: 100%;
+    margin-top: 40px;
+    opacity: .7;
+
+    &:hover, &:active {
+      opacity: 1;
+    }
+
+    @include mq(xs) {
+      margin-top: 0;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    display: inline-block;
+    top: -0.5em;
+    right: -0.5em;
+    width: 1em;
+    height: 1em;
+    font-size: 40px;
+    line-height: 1em;
+    border-radius: 50%;
+    background-color: $amber500;
+
+
+    .fa {
+      font-size: 0.7em;
+      vertical-align: middle;
+    }
+  }
+
+  .list-group {
+    &-item {
+      padding: 20px 10px;
+      color: #444;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    &__cost {
+      @extend %font-style;
+      font-weight: 700;
+      padding: 20px 10px;
+    }
+  }
+
+  &--free {
+    .list-group {
+      &-item {
+        background-color: lighten($gray-light, 48%);
+      }
+
+      &__cost {
+        color: $brand-hero;
+      }
+    }
+
+    .panel__btn {
+      background-color: $brand-hero;
+    }
+  }
+
+  &--pro {
+    .list-group {
+      &-item {
+        background-color: lighten($gray-light, 46%);
+      }
+
+      &__cost {
+        color: $brand-success;
+      }
+    }
+
+    .panel__btn {
+      background-color: $brand-success;
+    }
+  }
+
+  &--enter {
+    .list-group {
+      &-item {
+        background-color: lighten($gray-light, 44%);
+      }
+
+      &__cost {
+        color: $brand-info;
+      }
+    }
+
+    .panel__btn {
+      background-color: $brand-info;
+    }
+  }
+}
+
+@include mq(sm) {
+
+  .pricing__panels {
+    > .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+
+      > [class*="col-"] {
+        padding: 0 10px 20px;
+
+        > .panel {
+          width: 220px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,154 @@
+$news-bg: #ededed;
+$stat-bg: #a3a3a3;
+$colorh4: #006148;
+
+.news {
+  background-color: $news-bg;
+  padding: 67px 0 60px 0;
+
+  .sect-header {
+    margin-bottom: 30px;
+  }
+
+  .row {
+    margin: 0;
+
+    &:after, &:before {
+      display: none;
+    }
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    [class^='col'] {
+      float: none;
+      width: 310px;
+      padding: 0;
+      margin-bottom: 15px;
+    }
+
+    @media (min-width: 480px) and (max-width: 767px) {
+      [class^='col'] {
+        width: 50%;
+        padding: 0 5px;
+      }
+    }
+
+    @include mq(xs) {
+      justify-content: center;
+
+      [class^='col'] {
+        width: 100%;
+        padding: 0;
+      }
+    }
+  }
+
+  &__list {
+    margin-top: 30px;
+  }
+
+  &-preview {
+    max-width: 310px;
+    margin: 0 auto;
+    overflow: hidden;
+
+    img {
+      max-width: auto;
+    }
+
+    &__top {
+      position: relative;
+      min-height: 50px;
+    }
+
+    &__bottom {
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .divider {
+      border: none;
+      height: 1px;
+      background-color: lighten($navbar-default-link-color, 5%);
+    }
+
+    &__title {
+      margin: 0 0 13px 0;
+      text-transform: uppercase;
+      color: $colorh4;
+      transition: all 117ms linear;
+
+      &-link {
+        color: $colorh4;
+        display: block;
+
+        span {
+          display: inline-block;
+          width: 100%;
+          line-height: 1.2;
+        }
+      }
+
+      &:after {
+        display: block;
+        content: '';
+        height: 2px;
+        width: 46px;
+        background-color: $colorh4;
+        margin-top: 10px;
+      }
+
+      &:hover, &:focus {
+        opacity: .7;
+      }
+    }
+
+    &__descr {
+      font-size: $font-size-base - 1;
+      line-height: 22px;
+      color: $gray-base;
+    }
+
+    &__licence {
+      font: ($font-size-small - 4)/1 Arial, sans-serif;
+      color: lighten($navbar-default-link-color, 15%);
+    }
+  }
+
+
+  &-stat {
+    position: absolute;
+    bottom: -1px;
+    width: 100%;
+    background-color: rgba($stat-bg, .4);
+    color: #fff;
+    padding: 7px 20px;
+
+    &__info {
+      display: inline-block;
+    }
+
+    &__title {
+      display: inline-block;
+      font-size: $font-size-h1;
+      margin: 0;
+      margin-right: 5px;
+      line-height: 1;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    &__date {
+      display: inline-block;
+      font-size: $font-size-base - 2;
+      line-height: 15px;
+    }
+  }
+
+  &__btn {
+    margin-top: 35px;
+  }
+}
+

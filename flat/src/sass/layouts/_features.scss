@@ -1,0 +1,84 @@
+.features {
+  > .container {
+    width: 100%;
+  }
+}
+
+.features-slider {
+
+  &__item {
+
+    &--teal500 {
+      background-color: #009688;
+    }
+
+    &--amber500 {
+      background-color: #FFC107;
+    }
+
+    &--blue500 {
+      background-color: #2196F3;
+    }
+  }
+}
+
+.features-slide {
+  display: block;
+  @include make-xs-column(8, $gutter: $grid-gutter-width)
+  max-width: 1170px;
+  margin: 0 auto;
+  float: none;
+  text-align: center;
+
+  @include mq(sm) {
+    @include make-xs-column(10, $gutter: $grid-gutter-width)
+    float: none;
+  }
+
+  @include mq(xs) {
+    @include make-xs-column(12, $gutter: $grid-gutter-width)
+    float: none;
+  }
+
+  &__header {
+    display: inline-block;
+    @include x-rem(padding, 5 0 7);
+    color: #fff;
+    font-weight: 700;
+
+    &--gray900 {
+      color: $gray900;
+    }
+
+    h2, p {
+      text-align: left;
+    }
+
+    @include mq(sm) {
+
+      @include x-rem(padding, 3 0 4);
+
+      @include mq(xs) {
+        h2, p { text-align: center };
+      }
+    }
+
+    @include mq(xs) {
+
+      @include x-rem(padding, 2.5 0);
+
+      h2 {
+        font-size: $font-size-base * 1;
+      }
+
+      p {
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

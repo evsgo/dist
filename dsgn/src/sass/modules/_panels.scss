@@ -1,0 +1,43 @@
+$cross-size: 60;
+$cross-arrow-size: 0.3em;
+$cross-dir: up;
+
+.scroll-up {
+  position: fixed;
+  display: block;
+  right: 0;
+  bottom: 0;
+  width: 1em;
+  height: 1em;
+  font-size: $cross-size + px;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 9999;
+  transition: none;
+
+  @media(min-width: 1470px) {
+    right: auto;
+    margin-left: (1470-$cross-size)/$cross-size + em;
+  }
+
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    @include triangle($cross-dir, (rgba($gray-darker, .7)), $cross-arrow-size);
+    bottom: 25px;
+    margin: 0 auto;
+    transition: all .2s ease;
+  }
+
+  &:hover {
+    height: 100%;
+    background-color: rgba(#222, .6);
+
+    &::after {
+      @include triangle($cross-dir, (rgba($gray-lighter, 1)), $cross-arrow-size);
+    }
+  }
+}

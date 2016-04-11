@@ -1,0 +1,35 @@
+#sectProject.projects
+  .container
+    .row
+      .col-sm-6.col-md-5
+        section.projects__info
+          h2.sect-header__title направления компании
+          figure.projects__brand
+            img(src="images/logo-project.png", alt="Logotype")
+            figcaption.small Бизнес и устойчивое лесопользование
+          a.projects__more(href="#") Узнать больше
+            i.icon-more
+
+      .col-sm-6.col-md-7.projects__list-wrapper
+        .projects-list
+          figure.projects-list__item
+            a.projects-list__image(href="#")
+              img(src="images/projects/project-1.jpg", alt="project")
+          figure.projects-list__item
+            a.projects-list__image(href="#")
+              img(src="images/projects/project-1.jpg", alt="project")
+          figure.projects-list__item
+            a.projects-list__image(href="#")
+              img(src="images/projects/project-1.jpg", alt="project")
+
+      .col-sm-6.col-md-5.projects__nav
+        .nav-arrows
+          button.nav-arrows__prev
+            i.icon-arrow-left
+            span.nav-arrows__brand acme
+            | realty
+          span.nav-arrows__divider
+          button.nav-arrows__next
+            span.nav-arrows__brand acme
+            | motion
+            i.icon-arrow-right

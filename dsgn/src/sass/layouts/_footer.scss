@@ -1,0 +1,139 @@
+.page-footer {
+  background-color: $gray-lighter;
+  min-height: 600px;
+  position: relative;
+
+  > .row {
+    margin: 0;
+  }
+
+  &__map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 600px;
+    width: 100%;
+    z-index: 0;
+
+    img {
+      max-width: none;
+      position: absolute;
+      top: -190px;
+      left: -50px;
+    }
+
+    .map-label {
+      position: absolute;
+      top: 45%;
+      left: 41%;
+      height: 40px;
+      width: 40px;
+      fill: $info;
+      transition: all .2s ease-in-out;
+      cursor: default;
+    }
+
+    &:hover {
+      .icon-map-label {
+        animation: twinkle-map-label .7s infinite alternate linear;
+      }
+    }
+  }
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 150px 0 50px;
+    background-color: transparent;
+  }
+
+  &__social {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .social-links {
+      width: auto;
+    }
+  }
+
+  &__copy {
+    padding-left: 20px;
+    font-weight: 700;
+    color: $gray-darker;
+  }
+
+  &__link {
+    text-transform: uppercase;
+
+    &:hover {
+      opacity: .6;
+    }
+    &:active {
+      opacity: .8;
+      color: #000;
+    }
+  }
+
+  @include mq(md) {
+    &__box {
+      justify-content: space-between;
+      min-height: 600px;
+      padding: 70px 15px 80px;
+    }
+
+    &__logo {
+      order: -1;
+      .logo {
+        line-height: 1.3;
+        font-weight: 700;
+      }
+      margin-bottom: 30px;
+    }
+
+    &__social {
+      justify-content: flex-start;
+
+      .social-links {
+        margin-top: 0;
+        padding-left: 0;
+      }
+    }
+
+    &__copy {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  @include mq(xs) {
+
+    &__contacts {
+      position: absolute;
+      right: 15px;
+      bottom: 80px;
+    }
+
+    &__logo {
+      width: 50%;
+    }
+
+    &__social {
+      justify-content: flex-end;
+      width: 50%;
+
+      .social-links {
+        flex-direction: column;
+        > li {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

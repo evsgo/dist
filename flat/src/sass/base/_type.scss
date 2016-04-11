@@ -1,0 +1,42 @@
+// Page header
+// -------------------------
+
+.page-header {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+
+h2 {
+  font-weight: 700;
+}
+
+p {
+  font-size: ceil(($font-size-base * 1.14));;
+  font-weight: 500;
+}
+
+@include mq (md) {
+  p { font-size: ceil(($font-size-base * 1)); }
+}
+
+@include mq(sm) {
+    h2 { font-size: ceil(($font-size-base * 1.7));}
+
+  @include mq(xs) {
+    h2 { font-size: ceil(($font-size-base * 1.14)); }
+  }
+}

@@ -1,0 +1,37 @@
+.social-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 95px;
+  margin: 0 auto;
+
+  &__link {
+    &:hover, &:focus {
+      opacity: .7;
+    }
+  }
+
+  @include mq(xs) {
+    float: right;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    min-height: 90px;
+  }
+
+  [class*='icon'] {
+    vertical-align: top;
+  }
+
+  .icon-facebook {
+    @include sprite($facebook);
+  }
+
+  .icon-twitter {
+    @include sprite($twitter);
+  }
+
+  .icon-behance {
+    @include sprite($behance);
+  }
+}

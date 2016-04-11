@@ -1,0 +1,130 @@
+%mdl-shadow {
+  box-shadow:
+  0 2px 2px 0 rgba(0,0,0,.14),
+  0 3px 1px -2px rgba(0,0,0,.2),
+  0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+%img-hover {
+  img {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+    transition: all .2s cubic-bezier(.4,0,1,1);
+  }
+
+  &:hover img{
+    opacity: .7;
+  }
+}
+
+
+.-under {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  transition: all .2s linear;
+
+  &::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200%;
+    transform-origin: 0 0;
+    transform: translateX(-50%);
+    height: 1px;
+    background: linear-gradient(to right,
+      $brand-success 50%, $gray-light 50%
+    );
+    transition: all .2s linear;
+  }
+
+  &--light {
+    &:after {
+      background: linear-gradient(to right,
+        $gray-base 50%, (rgba($gray-lighter, 100%)) 50%
+      );
+    }
+  }
+
+  &:hover:after {
+    transform: translateX(0);
+  }
+}
+
+.-img-hover {
+  @extend %img-hover;
+
+  &:hover img{
+    transform: scale(1.3) rotate(-6deg);
+  }
+}
+
+.-img-zoom {
+  @extend %img-hover;
+
+  &:hover img{
+    transform: scale(1.2);
+  }
+}
+
+
+.twinkle {
+  transition: all .2s ease-in-out;
+  animation: twinkle .8s .2s alternate infinite;
+}
+
+
+@keyframes twinkle {
+  from {
+    color: $gray-base;
+    fill: $gray-base;
+  } to {
+    color: darken($warning, 10%);
+    fill: darken($warning, 10%);
+  }
+}
+
+@keyframes twinkle-view {
+  from {
+    color: $gray-base;
+    fill: $gray-base;
+  } to {
+    color: darken($warning, 10%);
+    fill: darken($warning, 10%);
+  }
+}
+
+@keyframes twinkle-more {
+  from {
+    color: $alert;
+  }
+  to {
+    color: $gray-base;
+  }
+}
+
+@keyframes twinkle-map-label {
+  from {
+    fill: $info;
+  }
+  to {
+    fill: $gray-base;
+  }
+}
+
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.08, 1.08, 1.08);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

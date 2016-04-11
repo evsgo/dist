@@ -1,0 +1,16 @@
+# List ignore
+
+##### Files
+*.gem
+*.7z
+*.zip
+*.rar
+help.txt
+ngrok.exe
+
+##### Folders
+.sass-cache
+.git
+_assets
+tmp
+node_modules

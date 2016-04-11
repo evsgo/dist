@@ -1,0 +1,32 @@
+/* vendor:scss */
+@import "_vendor/bootstrap-sass/_bootstrap.scss";
+@import "_vendor/font-awesome/font-awesome.scss";
+@import "_vendor/slick-carousel/slick-theme.scss";
+@import "_vendor/slick-carousel/slick.scss";
+/* endinject */
+
+// dependencies
+@import "var";
+@import "utilities/mixins";
+@import "_vendor/sprite";
+
+// base
+@import "base/settings";
+@import "base/type";
+
+// layouts
+@import "layouts/header";
+@import "layouts/about";
+@import "layouts/features";
+@import "layouts/pricing";
+@import "layouts/previews";
+@import "layouts/feedback";
+@import "layouts/footer";
+
+// modules
+@import "modules/layout";
+@import "modules/tooltip";
+@import "modules/slider";
+
+// utilities
+@import "utilities/helpers";

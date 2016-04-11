@@ -1,0 +1,109 @@
+.page-footer {
+  position: relative;
+  padding: 3.5rem 0;
+  color: #fff;
+  background-color: #2a2d33;
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    transition: all 105ms ease-in-out;
+  }
+}
+
+.copyright {
+  %footer-link {
+    position: relative;
+    padding-bottom: 3px;
+    font-weight: 500;
+    color: #fff;
+
+    &:after {
+      content: ' ';
+      display: inline-block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(#fff, .1);
+      transition: all 105ms ease-in-out;
+    }
+
+    &:hover:after {
+      background-color: #fff;
+    }
+  }
+
+  &__logo {
+    margin-right: 10px;
+  }
+
+  &__border {
+    margin: 0 10px;
+  }
+
+  &-right {
+    margin-left: 15px;
+  }
+
+
+  &__home {
+    @extend %footer-link;
+
+    &:hover, &:focus, &--active {
+      color: $gray-light;
+    }
+  }
+
+  &__link {
+    @extend %footer-link;
+    color: $gray-light;
+
+    &:hover, &:focus, &--active {
+      color: $gray-lighter;
+    }
+  }
+
+  @include mq(sm) {
+    text-align: center;
+
+    &__logo {
+      display: block;
+      margin: 0 auto 15px;
+    }
+
+    &__home {
+      margin: 0;
+    }
+
+    &__border {
+      display: none;
+    }
+
+    &__right {
+      display: block;
+      margin-top: 15px;
+    }
+  }
+}
+
+
+.social-group {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__item {
+    padding: 0 10px;
+  }
+
+  &__link {
+    font-size: ceil(($font-size-base * 2.15));
+  }
+
+  @include mq(sm) {
+    margin-top: 20px;
+    justify-content: center;
+  }
+}

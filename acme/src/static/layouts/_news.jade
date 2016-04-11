@@ -1,0 +1,76 @@
+#sectNews.news
+  .container
+    section.sect-header
+      h2.sect-header__title новости
+
+    .row.news__list
+      .col-xs-6.col-sm-4
+        article.news-preview
+          figure.news-preview__top
+            a.news-preview__image(href="#")
+              img(src="images/news/news-1.jpg", alt="new")
+            figcaption.news-stat
+              time.news-stat__info(datetime='2015-11-30')
+                span.h1.news-stat__title 30
+                ol.news-stat__date
+                  li ноября
+                  li 2015
+
+          section.news-preview__bottom
+            h4.news-preview__title
+              a.news-preview__title-link(href='#')
+                span начало.
+                span первые шаги
+            p.news-preview__descr Компания руководствуется принципами бережного ведения лесного хозяйства и ответственного использования природных ресурсов. Каждый шаг в цепи производства от растущих деревьев до создания готового продукта.
+            hr.divider
+            div.news-preview__licence
+              | ACME INC
+
+
+      .col-xs-6.col-sm-4
+        article.news-preview
+          figure.news-preview__top
+            a.news-preview__image(href="#")
+              img(src="images/news/news-2.jpg", alt="new")
+            figcaption.news-stat
+              time.news-stat__info(datetime='2015-11-22')
+                span.h1.news-stat__title 22
+                ol.news-stat__date
+                  li ноября
+                  li 2015
+
+          section.news-preview__bottom
+            h4.news-preview__title
+              a.news-preview__title-link(href='#')
+                span начало.
+                span первые шаги
+            p.news-preview__descr Компания руководствуется принципами бережного ведения лесного хозяйства и ответственного использования природных ресурсов. Каждый шаг в цепи производства от растущих деревьев до создания готового продукта.
+            hr.divider
+            div.news-preview__licence
+              | ACME INC
+
+
+      .col-xs-6.col-sm-4
+        article.news-preview
+          figure.news-preview__top
+            a.news-preview__image(href="#")
+            figcaption.news-stat
+              time.news-stat__info(datetime='2015-11-20')
+                span.h1.news-stat__title 20
+                ol.news-stat__date
+                  li ноября
+                  li 2015
+
+          section.news-preview__bottom
+            h4.news-preview__title
+              a.news-preview__title-link(href='#')
+                span начало.
+                span первые шаги
+            p.news-preview__descr Компания руководствуется принципами бережного ведения лесного хозяйства и ответственного использования природных ресурсов. Каждый шаг в цепи производства от растущих деревьев до создания готового продукта.
+            hr.divider
+            div.news-preview__licence
+              | ACME INC
+
+    .news__btn
+      form(action="/", method='get')
+        button.btn.btn-content(href="#") показать все новости

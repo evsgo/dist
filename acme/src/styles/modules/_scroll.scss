@@ -1,0 +1,60 @@
+$margin-left-scroll: -105px;
+
+.scroll-up-wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 105px;
+
+  .triangle {
+    margin-left: $margin-left-scroll;
+    @include triangle(up, #fff, 210px);
+
+    @media (max-width: 1440px) {
+      margin-left: 0;
+
+      @include mq(xs) {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.scroll-up {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5px;
+  height: 54px;
+  z-index: 9999;
+
+  &__btn {
+    position: absolute;
+    width: 210px;
+    height: 54px;
+    margin-left: $margin-left-scroll;
+    cursor: default;
+
+    @media (max-width: 1440px) {
+      margin-left: 0;
+
+      @include mq(xs) {
+        left: 50%;
+        width: auto;
+        transform: translateX(-50%);
+      }
+    }
+
+    .icon-scroll {
+      @include sprite($scroll);
+      opacity: .5;
+      margin: 0 auto;
+
+      &:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+  }
+}

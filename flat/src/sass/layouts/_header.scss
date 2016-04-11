@@ -1,0 +1,145 @@
+.page-header {
+  position: relative;
+  padding: 65px 0;
+  margin: 0;
+  color: #000;
+  background: transparent linear-gradient(
+    135deg, #4C88EF 0%, #17E4D9 100%
+    ) repeat scroll 0% 0%;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-nav {
+   > li > a {
+    padding: 8px 12px;
+    margin-top: 7px;
+    border-radius: 0;
+    transition: all 105ms ease-in-out;
+
+    &:focus {
+      border-radius: 14px;
+    }
+
+    @include mq(sm) {
+      max-width: 280px;
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+
+.navbar-brand {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+
+  img {
+    display: inline-block;
+    margin-right: 25px;
+
+    @include mq(xs) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.navbar-toggle {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.jumbotron {
+  margin-top: 200px;
+  padding-bottom: 20px;
+
+  &__text {
+    color: #fff;
+
+    h1 {
+      font-size: $font-size-h1;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 280px;
+      margin-top: 20px;
+      border-radius: 0;
+
+      &-success:hover {
+        background-color: transparent;
+        border-color: rgba(#000, .7);
+      }
+    }
+  }
+
+  &__msg {
+    img {
+      display: inline-block;
+      max-width: 100%;
+      transition: all 205ms linear;
+    }
+
+    &:hover {
+      img {
+        transform: translateY(-20px);
+      }
+    }
+  }
+
+  @include mq(sm) {
+    margin-top: 20px;
+    padding-top: 50px;
+    overflow: hidden;
+    border-radius: 0;
+
+    &__text {
+      max-width: 500px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: ceil(($font-size-base * 1.7));
+        margin-top: 0px;
+      }
+
+      p {
+        font-size: ceil(($font-size-base * 1.25));
+      }
+
+      @include mq(xs) {
+        padding-left: 0;
+        max-width: 280px;
+        h1 {
+          font-size: ceil(($font-size-base * 1.25));
+          margin-top: 0px;
+        }
+
+        p {
+          font-size: ceil(($font-size-base * 1.14));
+        }
+      }
+    }
+
+    &__msg {
+      position: absolute;
+      display: block;
+      padding: 0;
+      top: 40%;
+      left: -140px;
+      width: 180px;
+      transform: rotate(-20deg);
+      transition: all 205ms ease-in-out;
+
+      &:hover, &:focus, &-active {
+        left: -80px;
+        transform: rotate(-0) translate(0, 0);
+      }
+
+      @include mq(xs) {
+        left: -160px;
+      }
+    }
+  }
+}

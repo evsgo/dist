@@ -1,0 +1,261 @@
+$colorBtn: #fff;
+
+.slick-dots {
+  bottom: -30px;
+}
+.previews {
+  .container {
+    padding: 0;
+    width: 100%;
+    max-width: 1170px;
+  }
+
+  &__header {
+    position: relative;
+    z-index: 99999;
+    text-align: center;
+    @include x-rem(padding, 4 0);
+    background-color: darken($gray-lighter, 2%);
+    color: lighten($brand-hero, 15%);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  &__slider-inner {
+    position: relative;
+    background-color: #2d3136;
+
+    // filter scene disabled
+    &:after {
+      position: absolute;
+      content: ' ';
+      display: block;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba($deep-orange500, .55), rgba(#802A0C, .65));
+      z-index: 9000;
+      transform-origin: 50%;
+      transform: scale(1);
+      transition: all 100ms linear;
+    }
+  }
+
+  .slick-dots {
+    bottom: 11px;
+
+    li button:before {
+      color: $deep-orange500;
+    }
+  }
+}
+
+.previews-slider {
+  position: relative;
+
+  &__item {
+    height: 550px;
+
+    img {
+      filter: blur(2px);
+      transition: all 105ms ease-in-out;
+      width: 100%;
+      height: 550px;
+    }
+
+    @include mq(md) {
+      height: 500px;
+      img {
+        height: 500px;
+      }
+    }
+
+    @include mq(sm) {
+      height: 380px;
+      img {
+        height: 380px;
+      }
+    }
+
+    @include mq(xs) {
+      height: 220px;
+      img {
+        height: 220px;
+      }
+    }
+  }
+
+  &__panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+}
+
+[data-slider-filter="disabled"] {
+
+  ul li img {
+    filter: blur(0);
+  }
+
+  &:after {
+    transform: scale(0);
+  }
+}
+
+[data-slider-controls="actived"] {
+  top: auto;
+  bottom: 10px;
+  left: 140px;
+  transform: translate(0, 0);
+
+  @include mq(lg) {
+    left: 110px;
+
+    @include mq(sm) {
+      left: 70px;
+
+      @include mq(xs) {
+        left: 50px;
+      }
+    }
+  }
+}
+
+%controlsButton {
+  box-sizing: content-box;
+  position: relative;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  color: transparent;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1001;
+  opacity: .8;
+  transition: all 105ms ease-in-out;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:before {
+    display: block;
+    content: '';
+    width: 1em;
+    height: 1em;
+    transition: all 505ms linear;
+  }
+}
+
+.previews-slider__btn {
+  @extend %controlsButton;
+  font-size: 40px;
+  border-radius: 50%;
+  padding: 20/60+em;
+  border: 25/60+em solid #fff;
+
+  &:before {
+    background: linear-gradient(
+        to right bottom, #fff 49%, transparent 51%
+      ) 100% 95%,
+        linear-gradient(
+        to right top, #fff 49%, transparent 51%
+      ) 100% 2%;
+    background-repeat: no-repeat;
+    background-size: 80% 50%;
+
+    @include mq(xs) {
+      background: linear-gradient(
+          to right bottom, #fff 49%, transparent 51%
+        ) 100% 98%,
+          linear-gradient(
+          to right top, #fff 49%, transparent 51%
+        ) 100% 0%;
+      background-repeat: no-repeat;
+      background-size: 80% 50%;
+    }
+  }
+
+  @include mq(xs) {
+    font-size: 20px;
+  }
+}
+
+[data-slider-stop="true"],
+[data-slider-paused="true"],
+[data-slider-left="true"],
+[data-slider-right="true"] {
+  @extend %controlsButton;
+  display: block;
+  color: green;
+  font-size: 15px;
+  margin-right: 5px;
+  border-width: 1px;
+  padding: 5px;
+
+  @include mq(xs) {
+    font-size: 10px;
+  }
+}
+
+[data-slider-stop="true"] {
+  &::before {
+    background: linear-gradient(
+        to right, $colorBtn 60%, transparent 51%
+      ) 100% 50%,
+        linear-gradient(
+        to left, $colorBtn 60%, transparent 51%
+      )  0 50%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+[data-slider-paused="true"] {
+  &::before {
+    background: linear-gradient(
+        to right, $colorBtn 60%, transparent 51%
+      )  25% 50%,
+        linear-gradient(
+        to left, $colorBtn 60%, transparent 51%
+      )  75% 50%;
+    background-repeat: no-repeat;
+    background-size: 50% 100%;
+  }
+}
+
+
+// triangle arrows
+[data-slider-left="true"] {
+  &::before {
+    background: linear-gradient(
+        to left bottom, $colorBtn 49%, transparent 51%
+      ) 25% 93%,
+        linear-gradient(
+        to left top, $colorBtn 49%, transparent 51%
+      ) 25% 5%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+  }
+}
+
+[data-slider-right="true"] {
+  &::before {
+    background: linear-gradient(
+        to right bottom, $colorBtn 49%, transparent 51%
+      ) 25% 93%,
+        linear-gradient(
+        to right top, $colorBtn 49%, transparent 51%
+      ) 25% 5%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+  }
+}

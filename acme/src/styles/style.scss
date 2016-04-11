@@ -1,0 +1,27 @@
+@import "_vendor/variables";
+@import "utilities/mixins";
+@import "_vendor/sprite";
+
+// mods
+@import "_vendor/bootstrap-mod/_bootstrap.scss";
+@import "_vendor/slick-carousel-mod/slick-theme.scss";
+@import "_vendor/slick-carousel-mod/slick.scss";
+
+// based
+@import "common/settings";
+@import "common/type";
+
+// components
+@import "layouts/header";
+@import "layouts/projects";
+@import "layouts/news";
+@import "layouts/contacts";
+@import "layouts/footer";
+
+// modules
+@import "modules/menu-navbar";
+@import "modules/menu-projects";
+@import "modules/social";
+@import "modules/scroll";
+@import "modules/projects-slider";
+@import "modules/form-elements";
